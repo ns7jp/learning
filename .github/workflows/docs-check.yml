@@ -1,0 +1,57 @@
+name: docs-check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run markdownlint
+        run: npx -y markdownlint-cli2 "**/*.md" "#node_modules"
+
+  mermaid-parse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install parser dependencies
+        run: npm install --no-save mermaid@10 jsdom
+      - name: Validate Mermaid diagrams
+        run: node scripts/check-mermaid.mjs .
+
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore lychee cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee-${{ github.sha }}
+          restore-keys: cache-lychee-
+      # リポジトリ内のリンク切れと見出しアンカー切れは決定的に検出できるため CI を落とす。
+      - name: Check local links and anchors (blocking)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --cache --max-cache-age 7d --no-progress --offline --include-fragments './**/*.md'
+          fail: true
+      # 外部リンクは相手側の一時障害で揺れるため参考情報として実行（結果はログで確認）
+      - name: Check external links (informational)
+        uses: lycheeverse/lychee-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: --cache --max-cache-age 7d --no-progress './**/*.md'
+          fail: false
