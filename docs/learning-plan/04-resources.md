@@ -124,7 +124,7 @@ IaC（Infrastructure as Code）は、サーバーの設定を手作業で行わ�
 > このラボで主に使うクラウドは AWS、その構成をコードで管理するツールは Terraform です。
 > Terraform を選んだ理由は [ADR-0005](https://github.com/ns7jp/ns7jp/blob/main/docs/adr/0005-terraform-for-iac.md) に記録しています
 > （ADR は「何を決めたか」と「なぜそう決めたか」を 1 件 1 ファイルで残す記録です）。
-> ただし現在の派遣先研修（[target-roles.md](https://github.com/ns7jp/ns7jp/blob/main/docs/target-roles.md)）や国内エンタープライズ案件では Azure も頻出するため、上の表には Azure の教材も入れています。
+> ただし国内エンタープライズ案件では Azure も頻出するため、上の表には Azure の教材も入れています。
 >
 > 上の教材を実機で裏付けるための演習を、次の 3 本設計しています。**いずれも設計だけで、実行はしていません（設計のみ・未実施）**。
 >

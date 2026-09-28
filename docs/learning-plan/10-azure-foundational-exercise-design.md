@@ -6,7 +6,7 @@
 >
 > [サーバー構築エンジニア学習プラン](./README.md) Phase 6（[W21 クラウド基礎](./02-curriculum.md#w21-クラウド基礎)・[W22 Terraform によるコード化](./02-curriculum.md#w22-terraform-によるコード化)）のハンズオンを、[05](./05-phase1-exercise-design.md)・[06](./06-shell-scripting-exercise-design.md)・[07](./07-python-ops-automation-exercise-design.md)・[08](./08-ad-exercise-design.md)・[09](./09-zabbix-monitoring-exercise-design.md)と同じ様式で具体化した演習設計です。対象は **Microsoft Azure** です。
 >
-> **本書は [ADR-0005](https://github.com/ns7jp/ns7jp/blob/main/docs/adr/0005-terraform-for-iac.md) を覆すものではありません。** 本ポートフォリオの主要クラウド／IaC 系統は AWS + Terraform のまま（[03 AWS + Terraform](https://github.com/ns7jp/ns7jp/blob/main/docs/server-monitor-improvements/03-terraform-aws.md)）とし、本演習はそれとは独立に Azure 環境をもう 1 つ追加で構築します。[target-roles.md](https://github.com/ns7jp/ns7jp/blob/main/docs/target-roles.md)・[career-bridge.md「志望の経緯」](https://github.com/ns7jp/ns7jp/blob/main/docs/career-bridge.md#志望の経緯)が記すとおり、現在の派遣先では Windows Server / AD / Linux / AWS / Azure の構築研修に就いており、Azure は志望領域そのものに直結します。また、国内 SIer・大手企業の社内基盤では、Microsoft 365 や Entra ID と相性がよいことから Azure の採用例が多いと理解しています。そこで本書は、AWS だけの実務経験を Azure でも説明できる状態へ引き上げる補完演習として設計します。位置付けは [09 Zabbix](./09-zabbix-monitoring-exercise-design.md) と同じです。09 が主監視スタックの Prometheus 系を置き換えずに Zabbix を 1 つ足したのと同様に、本書も主系統の AWS + Terraform を置き換えずに Azure を 1 つ足します。
+> **本書は [ADR-0005](https://github.com/ns7jp/ns7jp/blob/main/docs/adr/0005-terraform-for-iac.md) を覆すものではありません。** 本ポートフォリオの主要クラウド／IaC 系統は AWS + Terraform のまま（[03 AWS + Terraform](https://github.com/ns7jp/ns7jp/blob/main/docs/server-monitor-improvements/03-terraform-aws.md)）とし、本演習はそれとは独立に Azure 環境をもう 1 つ追加で構築します。[target-roles.md](https://github.com/ns7jp/ns7jp/blob/main/docs/target-roles.md)・[career-bridge.md「志望の経緯」](https://github.com/ns7jp/ns7jp/blob/main/docs/career-bridge.md#志望の経緯)が記すとおり、派遣就業での研修では Windows Server / AD / Linux サーバーの構築に取り組みました。また、国内 SIer・大手企業の社内基盤では、Microsoft 365 や Entra ID と相性がよいことから Azure の採用例が多いと理解しています。そこで本書は、AWS だけで学んできた内容を Azure でも説明できる状態へ引き上げる補完演習として設計します。位置付けは [09 Zabbix](./09-zabbix-monitoring-exercise-design.md) と同じです。09 が主監視スタックの Prometheus 系を置き換えずに Zabbix を 1 つ足したのと同様に、本書も主系統の AWS + Terraform を置き換えずに Azure を 1 つ足します。
 >
 > 本リポジトリの「[新規設計を増やさない運用ルール](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence-capture-checklist.md#新規設計を増やさない運用ルール)」の対象は **server-monitor の改善設計 06 以降**です。本書は改善設計ではなく学習計画（[05](./05-phase1-exercise-design.md)〜[09](./09-zabbix-monitoring-exercise-design.md)と同じ位置付け）のため対象外です。
 >
@@ -45,7 +45,7 @@
 [02 フェーズ別カリキュラム W21](./02-curriculum.md#w21-クラウド基礎)は「クラウドの責任共有モデル / 仮想ネットワーク / セキュリティグループ / 仮想サーバー」等の**見出しだけ**のハンズオンで、クラウド事業者を指定していません。本ラボの IaC 実装（[ADR-0005](https://github.com/ns7jp/ns7jp/blob/main/docs/adr/0005-terraform-for-iac.md)、[03 AWS + Terraform](https://github.com/ns7jp/ns7jp/blob/main/docs/server-monitor-improvements/03-terraform-aws.md)）は AWS を対象にしていますが、それとは別に、次の 2 点を満たす補完演習として本書を設計します。
 
 1. [career-bridge.md §2.7](https://github.com/ns7jp/ns7jp/blob/main/docs/career-bridge.md#27-クラウド基盤の転用可能性aws--azure)の概念対応表を「調べて書いた対応関係」から「実際に構築・設定して検証した対応関係」へ引き上げる
-2. 現在の派遣先研修（[target-roles.md](https://github.com/ns7jp/ns7jp/blob/main/docs/target-roles.md)）、および国内 SIer・エンタープライズ案件で頻出する Azure の実務経験を、[05](./05-phase1-exercise-design.md)〜[09](./09-zabbix-monitoring-exercise-design.md)と同水準の具体性（コマンド・想定結果・試験項目）で積む
+2. 国内 SIer・エンタープライズ案件で頻出する Azure の実務経験を、[05](./05-phase1-exercise-design.md)〜[09](./09-zabbix-monitoring-exercise-design.md)と同水準の具体性（コマンド・想定結果・試験項目）で積む
 
 ### スコープ
 

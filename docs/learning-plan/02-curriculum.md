@@ -402,7 +402,7 @@ Ansible は、Phase 4 で書いた構築手順書を「人が読んで手で打�
 > まず管理画面（コンソール）から手作業で作り、次に同じ構成を Terraform のコードで作り直し、最後に `apply`（適用）と `destroy`（削除）まで通す、という流れを設計してある。
 > [server-monitor 改善設計 03](https://github.com/ns7jp/ns7jp/blob/main/docs/server-monitor-improvements/03-terraform-aws.md)が扱う ALB（負荷分散装置）・マルチ AZ（複数のデータセンターへの分散配置）を含む本番想定の大規模設計とは別物で、その前段に位置する。
 >
-> あわせて、現在の派遣先研修で扱う Azure（[target-roles.md](https://github.com/ns7jp/ns7jp/blob/main/docs/target-roles.md)）についても補完演習を用意している。
+> あわせて、国内 SIer・エンタープライズ案件で採用例の多い Azure についても補完演習を用意している。
 > [career-bridge.md の概念対応表](https://github.com/ns7jp/ns7jp/blob/main/docs/career-bridge.md#27-クラウド基盤の転用可能性aws--azure)の内容を実機で検証する狙いで、[10 Azure構築演習設計](./10-azure-foundational-exercise-design.md)に置いている（設計のみ・未実施）。
 > 本ラボの主要クラウド／IaC 系統は AWS + Terraform のままであり、この選定理由は [ADR-0005](https://github.com/ns7jp/ns7jp/blob/main/docs/adr/0005-terraform-for-iac.md)に記録している。ADR とはアーキテクチャ決定記録のことで、「なぜこの技術を選んだか」を 1 件 1 ファイルで残す設計判断メモである。
 
