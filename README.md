@@ -6,6 +6,14 @@
 > これらは学習用の教材と演習の設計です。作者の実務経験や、教材の全範囲を実施した実績を示すものではありません。
 > 作者が実際に行った記録は、主作品 [server の検証証跡台帳](https://github.com/ns7jp/server/blob/main/docs/evidence/README.md)にあります。
 
+## このリポジトリの位置づけ
+
+- **学習用の副作品（教材）です。** 主作品は [ns7jp/server](https://github.com/ns7jp/server) で、作者が手元のVMで操作した記録はそちらにまとめています。
+- **AI支援で作成した部分が大きいです。** 教材の多くは、AIツール（Claude Code・OpenAI Codex）の支援で作成しました。このリポジトリの中身は、`claude/determined-ramanujan-24l0jd` ブランチからのマージ（コミット作者 `Claude`）で取り込んだものです。移動前の [ns7jp/ns7jp](https://github.com/ns7jp/ns7jp) での履歴では、これらのファイルに関わるマージを除くコミット67件のうち、作者が `Claude` のものが51件、`Codex` のものが3件、島田則幸のものが13件です（2026-09-28 時点で確認できる範囲）。
+- **作者による実行記録:** このリポジトリには、作者本人の実行記録はありません。演習設計の多くは「設計のみ・未実施」、キットは未使用の雛形です（例: [AWS 演習キット](docs/learning-plan/aws-exercise-kit/README.md)）。一部の設計書にある実施記録（例: [06 シェルスクリプト演習設計](docs/learning-plan/06-shell-scripting-exercise-design.md)）は、AI 支援セッションの作業環境で試したもので、作者本人の実行ではありません。
+- **主作品・プロフィールとの関係:** プロフィールでは「採用の判断には不要」としていますが、プロフィールの採録計画（`docs/evidence-capture-checklist.md`）や資格ロードマップは、次に行う実習の手順として、この教材の [13 恒久ホスト構築演習設計](docs/learning-plan/13-persistent-host-exercise-design.md)と [11 AWS基礎構築演習設計](docs/learning-plan/11-aws-foundational-exercise-design.md)などを参照しています。採用の判断に使う記録は主作品にあり、この教材はその手順の一部を置いている場所です。
+- **重複:** 未実行の AWS 構築コードは、この教材の AWS 演習キットのほか、[ns7jp/aws](https://github.com/ns7jp/aws) と主作品の [`terraform/`](https://github.com/ns7jp/server/blob/main/terraform/README.md) にもあり、内容が一部重なります。
+
 ## 最初に開くページ
 
 | いまの状態 | 開くページ |
