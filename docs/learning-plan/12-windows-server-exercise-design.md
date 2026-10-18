@@ -16,7 +16,7 @@
 >
 > これは、[05 Phase 1 演習設計](./05-phase1-exercise-design.md)が Linux 側で埋めた
 > 「[STATUS.md](https://github.com/ns7jp/ns7jp/blob/main/STATUS.md)の『空の VM に OS を入れるところからやっていない』」という穴と**同じ形の穴**が、
-> Windows 側（[STATUS.md](https://github.com/ns7jp/ns7jp/blob/main/STATUS.md)の「研修で触っている Windows Server / AD / AlmaLinux が portfolio に
+> Windows 側（[STATUS.md](https://github.com/ns7jp/ns7jp/blob/main/STATUS.md)の「研修で触った Windows Server / AD / AlmaLinux が portfolio に
 > 出ていない」）にも存在することを意味します。本書は、05 が Linux（`lab-base01`）に対して行ったのと同じ密度
 > （[03 構築工程の実務ドキュメント](./03-build-process.md)の様式：パラメータシート・構築手順書・試験項目書）で、
 > Windows Server 版のテンプレートホスト `LAB-WINBASE01` に対してこれを行います。
@@ -43,7 +43,7 @@
 >
 > 本ドキュメントは**設計であり、実施記録ではありません**。実施したら [8. 実施ステータス](#8-実施ステータスと次のアクション)を更新します。
 
-最終更新: 2026-08-27
+最終更新: 2026-10-18（目的の節の「Windows 側の記録は 1 件」を 2026-08 時点の内容だと分かるように直し、その後の AD・WSUS の記録を書き足しました）
 
 > **実施ステータス: 設計のみ・未実施**（2026-08-27 時点）。試験項目書の実測結果欄はすべて空欄です。
 
@@ -70,8 +70,8 @@
 
 ### 目的
 
-[STATUS.md](https://github.com/ns7jp/ns7jp/blob/main/STATUS.md)が挙げる「研修で触っている Windows Server / AD / AlmaLinux が portfolio に出ていない」
-という穴のうち、Windows 側は現状 [LEARNINGS.md](https://github.com/ns7jp/ns7jp/blob/main/LEARNINGS.md)の Hyper-V AD エントリ 1 件に留まっています。
+[STATUS.md](https://github.com/ns7jp/ns7jp/blob/main/STATUS.md)が挙げる「研修で触った Windows Server / AD / AlmaLinux が portfolio に出ていない」
+という穴のうち、Windows 側は本書を書いた時点（2026-08-27）では [LEARNINGS.md](https://github.com/ns7jp/ns7jp/blob/main/LEARNINGS.md)の Hyper-V AD エントリ 1 件に留まっていました（その後、2026-09-01〜08 に、AI の手順案内を受けて手元の VM で AD・WSUS を構築・試験した記録を、server の[検証証跡台帳](https://github.com/ns7jp/server/blob/main/docs/evidence/README.md)へ追加しています）。
 [windows-ad-lab.md](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence/templates/windows-ad-lab.md)・[06](./06-shell-scripting-exercise-design.md)・
 [07](./07-python-ops-automation-exercise-design.md)・[08](./08-ad-exercise-design.md)はいずれも詳細な設計を
 持っていますが、**その全員が「OS は既に初期構築済み」という状態から始まっており**、初期構築そのものを

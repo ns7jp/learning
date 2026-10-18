@@ -6,7 +6,7 @@
 >
 > 本リポジトリの「[新規設計を増やさない運用ルール](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence-capture-checklist.md)」の対象は **server-monitor の改善設計 06 以降**です。本書は改善設計ではなく学習計画（[05](./05-phase1-exercise-design.md)と同じ位置付け）のため対象外です。
 >
-> Windows（PowerShell）を扱う理由は、[STATUS.md](https://github.com/ns7jp/ns7jp/blob/main/STATUS.md) が「コードでは埋められない、残っている穴」に挙げる**研修で触れている Windows Server / AD が実測に出ていないこと**に対応するためです。本書はそのうち、Active Directory のユーザー・グループ操作、Windows サービス、イベントログという**運用スクリプトの基礎**を演習として 1 から組み立てます。ドメインコントローラの構築そのもの（forest promotion）は引き続き [Windows / AD 公開再現ラボ](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence/templates/windows-ad-lab.md)の領域とし、本書はそのラボが構築済みであることを前提にした操作スクリプトを対象にします。
+> Windows（PowerShell）を扱う理由は、本書を書いた時点（2026-08）の [STATUS.md](https://github.com/ns7jp/ns7jp/blob/main/STATUS.md) が「コードでは埋められない、残っている穴」に挙げていた**研修で触れた Windows Server / AD が実測に出ていないこと**に対応するためです（その後、2026-09-01〜08 に、AI の手順案内を受けて手元の VM で行った AD・WSUS の構築と試験の記録を、server の[検証証跡台帳](https://github.com/ns7jp/server/blob/main/docs/evidence/README.md)へ追加しています）。本書はそのうち、Active Directory のユーザー・グループ操作、Windows サービス、イベントログという**運用スクリプトの基礎**を演習として 1 から組み立てます。ドメインコントローラの構築そのもの（forest promotion）は引き続き [Windows / AD 公開再現ラボ](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence/templates/windows-ad-lab.md)の領域とし、本書はそのラボが構築済みであることを前提にした操作スクリプトを対象にします。
 >
 > 本ドキュメントは主に**設計**です。どこまで実際に動かしたかは、次の 2 つに分かれます。
 >
@@ -17,7 +17,7 @@
 >
 > 詳細は [8. 実施ステータス](#8-実施ステータスと次のアクション)を参照してください。
 
-最終更新: 2026-08-26
+最終更新: 2026-10-18（Windows を扱う理由の記述を、2026-08 時点の内容だと分かるように直し、その後の AD・WSUS の記録を書き足しました）
 
 ---
 
