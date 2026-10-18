@@ -4,7 +4,7 @@
 >
 > [サーバー構築エンジニア学習プラン](./README.md) Phase 6 の [W21 クラウド基礎](./02-curriculum.md#w21-クラウド基礎)・[W22 Terraformによるコード化](./02-curriculum.md#w22-terraform-によるコード化)は、他のフェーズと違って学習項目・ハンズオンが見出しレベルの記述にとどまっており、[05](./05-phase1-exercise-design.md)〜[09](./09-zabbix-monitoring-exercise-design.md)と同じ密度の具体設計がありませんでした。本書はこの差分を、[03 構築工程の実務ドキュメント](./03-build-process.md)の様式（パラメータシート・構築手順書・試験項目書）に沿って埋めます。
 >
-> **本書は [STATUS.md の「コードでは埋められない、残っている穴」4 番目](https://github.com/ns7jp/ns7jp/blob/main/STATUS.md#コードでは埋められない残っている穴)（Terraform 約 3,000 行が `apply` 0 回）に対応する、最初の一歩としての演習設計です。** [server-monitor 改善設計 03 AWS + Terraform化](https://github.com/ns7jp/ns7jp/blob/main/docs/server-monitor-improvements/03-terraform-aws.md)はモジュール・環境コードとも実装済みですが、ALB・マルチAZ・NAT Gateway・CloudTrail・GuardDuty を含む本番想定の約 3,000 行が一度も `apply` されていません。**本書はその設計をいきなり実行するための手引きではありません。** VPC 1 つ・EC2 1 台という最小構成を、コンソールでの手動構築（W21 相当）→ Terraform 化（W22 相当）の順で、実際に `apply` してから `destroy` まで確実に回し切ることだけを目的にした、規模を絞った別物の演習として設計します。ここで一度も `apply` していない状態を脱してから、初めて 03 の本番想定設計に取り組む土台ができるという位置付けです。
+> **本書は [STATUS.md の「コードでは埋められない、残っている穴」4 番目](https://github.com/ns7jp/ns7jp/blob/main/STATUS.md#コードでは埋められない残っている穴)（Terraform 約 3,000 行が `apply` 0 回）に対応する、最初の一歩としての演習設計です。** [server-monitor 改善設計 03 AWS + Terraform化](https://github.com/ns7jp/ns7jp/blob/main/docs/server-monitor-improvements/03-terraform-aws.md)はモジュール・環境コードとも実装済みですが、ALB・NAT Gateway を含む dev と D-2 用の staging の約 2,900 行が一度も `apply` されていません（マルチ AZ・EC2 2 台の本番想定（prod）は、一度も `apply` しないまま 2026-09-27 に削除されました。CloudTrail・GuardDuty は両環境とも作らない設定です）。**本書はその設計をいきなり実行するための手引きではありません。** VPC 1 つ・EC2 1 台という最小構成を、コンソールでの手動構築（W21 相当）→ Terraform 化（W22 相当）の順で、実際に `apply` してから `destroy` まで確実に回し切ることだけを目的にした、規模を絞った別物の演習として設計します。ここで一度も `apply` していない状態を脱してから、初めて 03 の本番想定設計に取り組む土台ができるという位置付けです。
 >
 > [新規設計を増やさない運用ルール](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence-capture-checklist.md#新規設計を増やさない運用ルール)の対象は **server-monitor の改善設計 06 以降**です。本書は改善設計ではなく学習計画（[05](./05-phase1-exercise-design.md)・[06](./06-shell-scripting-exercise-design.md)・[07](./07-python-ops-automation-exercise-design.md)・[08](./08-ad-exercise-design.md)・[09](./09-zabbix-monitoring-exercise-design.md)と同じ位置付け）のため対象外です。
 >
@@ -12,7 +12,7 @@
 >
 > 本ドキュメントは**設計であり、実施記録ではありません**。実施したら [11. 実施ステータス](#11-実施ステータスと次のアクション)を更新します。
 
-最終更新: 2026-08-27
+最終更新: 2026-10-18（Terraform のコードの現状（本番想定の prod は削除済み、残りは約 2,900 行）に合わせて冒頭の説明を直しました。2026-09-09 に、作成されるリソース数と異常系の件数を訂正）
 
 > **実施ステータス: 設計のみ・未実施**（2026-08-27 時点）。試験項目書の実測結果欄はすべて空欄です。
 

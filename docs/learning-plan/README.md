@@ -10,7 +10,7 @@
 > - 対象は **未経験からサーバー構築（インフラ構築）を目指す初心者**です。本人の学習設計であると同時に、同じ立場の人がそのまま使える形で書いています
 > - 本書は**学習計画**であり、server-monitor の改善設計ではありません。そのため、本リポジトリの「[新規設計を増やさない運用ルール](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence-capture-checklist.md#新規設計を増やさない運用ルール)」（対象は改善設計 06 以降）には当たりません。学習でできた成果物は新しい設計書を作らず、既存の[証跡採録チェックリスト](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence-capture-checklist.md)（＝実機で確かめた証拠を残すための項目一覧）へ足していきます（[本ポートフォリオとの接続](#10-本ポートフォリオとの接続)）
 
-最終更新: 2026-09-01（初心者向け開始前診断、最小演習、学習ルート、採点例、第三者テスト様式を追加）
+最終更新: 2026-10-18（9. 資格との対応の表を LinuC-1 に直し、101 は保留中と書きました。あわせて、演習設計の一覧と自己採点に 05 の実施（2026-09-07〜08）と実行した人の注記を足し、第一志望の呼び方を直しました）
 
 ---
 
@@ -76,8 +76,8 @@
 | [03 構築工程の実務ドキュメント](./03-build-process.md) | 現場で書く 4 種類の書類（パラメータシート / 構築手順書 / 試験項目書 / 移行・切り戻し）のテンプレート | 必須 |
 | [04 教材と資格の対応](./04-resources.md) | 使う本・無料教材・資格と費用の目安 | 参考 |
 | [Windows コマンド集](../windows-commands.md) | コマンドプロンプトと PowerShell の基本コマンドを、目的から逆引きできる形でまとめた初心者向けリファレンス | 参考 |
-| [05 Phase 1 演習設計](./05-phase1-exercise-design.md) | 空の仮想マシン 1 台を、03 の書類つきで初期構築する演習（Phase 1 / `lab-base01`）。**設計のみ・未実施** | 演習設計 |
-| [06 シェルスクリプト演習設計](./06-shell-scripting-exercise-design.md) | 定型作業を Bash（Linux）と PowerShell（Windows）で自動化する演習（W4 / W18）。**設計のみ・未実施** | 演習設計 |
+| [05 Phase 1 演習設計](./05-phase1-exercise-design.md) | 空の仮想マシン 1 台を、03 の書類つきで初期構築する演習（Phase 1 / `lab-base01`）。**2026-09-07〜08 に作者が一度実施（AI の手順案内あり。記録は server の[実施記録](https://github.com/ns7jp/server/blob/main/docs/evidence/2026-09-08-lab-base01-initial-build.md)）。AI を使わない再実施は未実施** | 演習設計 |
+| [06 シェルスクリプト演習設計](./06-shell-scripting-exercise-design.md) | 定型作業を Bash（Linux）と PowerShell（Windows）で自動化する演習（W4 / W18）。**AI 支援セッションの作業環境で Bash 全体と PowerShell の一部を実行済み。作者は `Backup-Rotate.ps1` を 1 回実行し、文字コードの問題で読み込みに失敗した記録のみ（作者による完走は未実施）** | 演習設計 |
 | [07 Python 運用自動化演習設計](./07-python-ops-automation-exercise-design.md) | 06 と同じ題材（定型作業・バックアップ・監視チェック）を Python で書く版（Linux / Windows 両対応）。**設計のみ・未実施** | 演習設計 |
 | [08 AD構築演習設計](./08-ad-exercise-design.md) | Windows の利用者・権限管理（Active Directory）を、グループ設計からバックアップ・復元まで一通り作る演習（[Windows / AD 公開再現ラボ](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence/templates/windows-ad-lab.md)の先を扱う）。実施キット（[ad-exercise-kit/](./ad-exercise-kit/README.md)、構文検証済みの `.ps1` 全 11 本）あり。**設計のみ・未実施** | 演習設計 |
 | [09 Zabbix 監視基盤構築演習設計](./09-zabbix-monitoring-exercise-design.md) | 監視ツール Zabbix でサーバーを監視する演習。本ラボの主系統である Prometheus / Grafana とは別の補完。**設計のみ・未実施** | 演習設計 |
@@ -149,7 +149,7 @@ G3 の「L1 から L7」は OSI 参照モデルの階層を指します。用語
 
 | # | ゴール | 状況 | 根拠 / 残っていること |
 | --- | --- | --- | --- |
-| G1 | 空の VM から Web / AP / DB の 3 層構成を単独で構築 | △ | [3 層ラボ](https://github.com/ns7jp/server/tree/main/labs/three-tier)を[実コンテナで実行](https://github.com/ns7jp/server/blob/main/docs/drills/logs/2026-08-24-B-2.md)（nginx / gunicorn / PostgreSQL、層を分離、9 PASS）。**コンテナ上の構成であり、空の VM に OS を入れて組んだ実績ではない**。この差分を埋める演習は [05 Phase 1 演習設計](./05-phase1-exercise-design.md)に設計済み（未実施） |
+| G1 | 空の VM から Web / AP / DB の 3 層構成を単独で構築 | △ | [3 層ラボ](https://github.com/ns7jp/server/tree/main/labs/three-tier)を[実コンテナで実行](https://github.com/ns7jp/server/blob/main/docs/drills/logs/2026-08-24-B-2.md)（nginx / gunicorn / PostgreSQL、層を分離、9 PASS）。**コンテナ上の構成であり、空の VM に OS を入れて組んだ実績ではない**。この差分を埋める演習は [05 Phase 1 演習設計](./05-phase1-exercise-design.md)に設計済み（記載時点では未実施。その後、2026-09-07〜08 に 1 台の初期構築までを一度実施。3 層構成は未実施） |
 | G2 | パラメータシート・構築手順書・試験項目書として文書化 | ○ | [構築案件パック](https://github.com/ns7jp/server/tree/main/docs/build-package)。試験項目書の原本は引き渡し対象ホスト未定のため `NOT RUN`。記入済みの見本は演習の証跡が担当 |
 | G3 | 「つながらない」を L1 から L7 まで順番に切り分け | △ | [L2 / L3 ラボ](https://github.com/ns7jp/server/blob/main/docs/drills/logs/2026-08-24-B-4.md)で静的ルート・`ip_forward`を実機実行（6 PASS）。VLAN ID 不一致は kernel が `CONFIG_VLAN_8021Q` を無効化していたため未検証。**物理スイッチ・ケーブル・ポート VLAN は未着手（L1 が残っている）** |
 | G4 | Ansible / Terraform でコード化し、再実行できる | ○ | `site.yml` の一括適用と 2 回目 `changed=0` を[実測済み](https://github.com/ns7jp/server/blob/main/docs/evidence/2026-08-22-full-stack-e2e.md)。**Terraform は `validate` まで。`apply` は未実施** |
@@ -157,6 +157,8 @@ G3 の「L1 から L7」は OSI 参照モデルの階層を指します。用語
 | G6 | 面接で自分の言葉で説明できる | △ | [つまずきログ](https://github.com/ns7jp/ns7jp/blob/main/LEARNINGS.md)に症状 → 原因 → 対処 → 学びを記録。**AI 生成コードのうち、自分で説明できない深さのものを減らす作業が継続中** |
 
 凡例: ○ = 根拠を出せる / △ = 一部のみ / × = 未着手
+
+> **2026-10-18 注記**：G1・G3・G5 の根拠に挙げた B-1〜B-4（2026-08-24）は、AI 支援セッションの作業環境（qemu・Docker コンテナ・network namespace）で実行したもので、本人の操作ではありません。G3 の「実機実行」と G5 の「実機実行済み」は、これらの環境で実行したという意味です。G4 の `site.yml` の一括適用と、G5 の D-1 の RTO 1 秒も、CI（GitHub Actions）の使い捨て runner での結果です。G1 にある [05 Phase 1 演習](./05-phase1-exercise-design.md)は、2026-09-07〜08 に本人が AI の手順案内を受けて実施しました（[記録](https://github.com/ns7jp/server/blob/main/docs/evidence/2026-09-08-lab-base01-initial-build.md)）。この表の採点と、下の「残っている大きな穴」は 2026-08 時点のままです。
 
 **残っている大きな穴は 3 つ。**
 
@@ -215,7 +217,7 @@ flowchart LR
 ### 構築と運用の重なり
 
 構築と運用は対立しません。構築の質は運用のしやすさで決まり、運用の経験は構築の設計判断に返ります。
-本ポートフォリオの第一志望は [Linux サーバー構築・運用](https://github.com/ns7jp/ns7jp/blob/main/docs/target-roles.md) です。
+本ポートフォリオの第一志望は [インフラエンジニア（中心は Linux サーバー設計・構築）](https://github.com/ns7jp/ns7jp/blob/main/docs/target-roles.md) です。
 未経験採用の求人では「構築・運用」が一体で募集されることが多いため、本プランは**運用の学習と競合しません**。
 差分は Phase 4（構築工程のドキュメント）に集約しています。
 
