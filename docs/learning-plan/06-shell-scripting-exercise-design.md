@@ -72,7 +72,7 @@
 | 環境（Level 4・AD のみ） | 該当なし | 上記に加え、[Windows / AD 公開再現ラボ §4](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence/templates/windows-ad-lab.md#4-greenfield-ad-ds--dns-forest-の構築)でラボドメインを構築済みであること。**このラボ自体、本書執筆時点では未実施（`NOT RUN`）**（[8 章](#8-実施ステータスと次のアクション)） |
 | 権限 | 一般ユーザー + 必要時 `sudo` | Level 1〜3 は一般権限で完結。Level 4（AD 操作）とサービス・イベントログの一部（[4.3](#43-level-3-システム操作サービスイベントログ)）は管理者 PowerShell が必要 |
 | 前提知識 | [02 W1-W3](./02-curriculum.md#phase-1-linux-基礎w1-w4)（コマンド・パーミッション・プロセス）を終えていること | Windows のファイル操作・タスクスケジューラ・サービス管理の GUI 操作に慣れていること |
-| 位置付け | [24 週学習プラン](./README.md)の**主軸**（第一志望：Linux サーバー構築・運用に直結） | [社内 SE / Windows トラックの位置付け](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence-capture-checklist.md#社内-se--windows-トラックの位置付け2026-07-見直し)と同じ**補助トラック**。Linux を優先し、時間が余れば着手する |
+| 位置付け | [24 週学習プラン](./README.md)の**主軸**（第一志望のインフラエンジニア、中心は Linux サーバー構築・運用に直結） | [社内 SE / Windows トラックの位置付け](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence-capture-checklist.md#社内-se--windows-トラックの位置付け2026-07-見直し)と同じ**補助トラック**。Linux を優先し、時間が余れば着手する |
 
 > Level 4（AD 操作）は、[Windows / AD 公開再現ラボ](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence/templates/windows-ad-lab.md)が使う **fail-closed**（確認すべき条件が 1 つでも満たせなければ、先へ進まずその場で止める）の考え方は踏襲します。ただし、同ラボが forest promotion に課している重い安全策までは要求しません。forest promotion とは、何もない状態から新しい AD ドメインを作り、1 台目のドメインコントローラ（ユーザー情報を保持し、ログオン認証を担当するサーバー）に昇格させる操作です。同ラボはその実行前に、承認済みであることを示すファイルを事前に置かせる仕組み（承認 marker）と、決められた文言を 2 回入力させる確認プロンプトを課しています。本書が対象とするのは**ラボ専用の OU（Organizational Unit。AD の中でユーザー・グループ・コンピュータをまとめる、フォルダのような入れ物）内のユーザー・グループ**に限られ、ドメインコントローラの構築そのものより影響範囲が小さいためです。同じ重さの手順を機械的にコピーしないという判断自体が、[STATUS.md](https://github.com/ns7jp/ns7jp/blob/main/STATUS.md) の「未経験者としての実力に対して内容が高度すぎる」設計を避ける方針に沿っています。
 
