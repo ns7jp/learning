@@ -6,7 +6,9 @@
 > これらは学習用の教材と演習の設計です。作者の実務経験や、教材の全範囲を実施した実績を示すものではありません。
 > 作者が実際に行った記録は、主作品 [server の検証証跡台帳](https://github.com/ns7jp/server/blob/main/docs/evidence/README.md)にあります。
 >
-> **更新停止（参考資料）**：2026-10-18 から、このリポジトリの更新を止めて、参考資料として残しています。採用の判断には、主作品 [server](https://github.com/ns7jp/server) の記録をご覧ください。中身は 2026-10-18 時点のままです。
+> **更新停止（参考資料）**：2026-10-18 から、このリポジトリの更新を止めて、参考資料として残しています。採用の判断には、主作品 [server](https://github.com/ns7jp/server) の記録をご覧ください。中身は、下の 2026-10-24 の追記を除いて 2026-10-18 時点のままです。
+>
+> **2026-10-24 追記**：作者のプロフィール（ns7jp/ns7jp）の `STATUS.md` は、2026-10-24 に非公開の運営記録へ移しました。そのため、教材の中にある `STATUS.md` へのリンク（`docs/learning-plan/` の 19 ファイル・68 か所）は開けません。「本人の到達状況は STATUS.md を一次情報とします」「STATUS.md §0 ルール 7・8」などの記述は、2026-10-18 時点のものです。この教材は更新を止めているため、リンクは張り替えていません。作者の現在の到達状況は、主作品 server の[検証証跡台帳](https://github.com/ns7jp/server/blob/main/docs/evidence/README.md)と、プロフィールの[証跡採録チェックリスト](https://github.com/ns7jp/ns7jp/blob/main/docs/evidence-capture-checklist.md)をご覧ください。
 
 ## このリポジトリの位置づけ
 
